@@ -1,5 +1,4 @@
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Store Page</title>
@@ -10,14 +9,13 @@
    body { font-family: 'Roboto', sans-serif; }
    .font-supercell { font-family: 'Supercell-Magic', sans-serif; }
   </style>
-  <!-- Tailwind CSS styles omitted for brevity; keep the same -->
 </head>
 <body class="bg-blue-50 font-roboto relative">
   <div class="max-w-screen-sm mx-auto">
-   <img alt="Decorative shield and arrows background" class="w-full h-auto" src="https://i.hizliresim.com/i14hpx9.jpg">
+   <img alt="Decorative top background with shields and arrows" class="w-full h-auto" src="https://i.hizliresim.com/i14hpx9.jpg">
   </div>
 
-  <!-- Header -->
+  <!-- Title -->
   <div class="text-center mt-4 max-w-screen-sm mx-auto px-4">
    <h1 class="text-4xl font-bold flex items-center justify-center font-supercell select-none">
     <img alt="Clash of Clans icon" class="w-8 h-8 mr-2" src="https://store.supercell.com/_next/static/media/coc_icon_scenery.a300b94a.png" width="30" height="30">
@@ -33,7 +31,7 @@
       <div class="bg-blue-200 rounded-t-lg p-4">
        <h2 class="text-2xl font-bold text-center">Dragon Battle Background</h2>
        <div class="mt-4 rounded-lg overflow-hidden">
-         <video muted playsinline loop autoplay poster="https://game-assets.store.supercell.com/clashofclans/de84605b-e080-420c-bf3d-def796be7355.png" preload="metadata" class="w-full h-auto rounded-lg">
+         <video muted="" playsinline="" loop="" autoplay="" poster="https://game-assets.store.supercell.com/clashofclans/de84605b-e080-420c-bf3d-def796be7355.png" preload="metadata" class="w-full h-auto rounded-lg">
             <source src="https://game-assets.store.supercell.com/clashofclans/b193fdcf-9f59-4f69-a20b-f458c5299a8c.mov#t=0.1" type="video/quicktime;codecs=hvc1">
             <source src="https://game-assets.store.supercell.com/clashofclans/86015b42-68cf-4f8b-ab3b-c97d1084420f.webm#t=0.1" type="video/webm">
             <img alt="Video not found" src="https://store.supercell.com/_next/static/media/store_not_found_bag.ac1f8504.svg" width="130" height="119">
@@ -60,14 +58,22 @@
     <!-- Dragon Battle -->
     <div class="bg-white rounded-lg shadow-lg p-4">
       <button class="relative bg-[#3b2d23] hover:bg-[#2a1f17] text-white w-full rounded-lg overflow-hidden transition transform hover:scale-105 duration-300">
+        
+        <!-- Title -->
         <h3 class="text-xl font-bold text-center pt-4">Dragon Battle</h3>
+
+        <!-- Flare -->
         <div class="absolute inset-0">
           <div class="w-full h-full bg-no-repeat bg-center opacity-40" style="background-image:url('https://store.supercell.com/_next/static/media/shop_item_bg_flare.79c48672.png')">
           </div>
         </div>
+
+        <!-- Image -->
         <div class="relative flex items-center justify-center py-6">
           <img alt="Dragon Battle" src="https://game-assets.store.supercell.com/clashofclans/de84605b-e080-420c-bf3d-def796be7355.png" class="w-40 h-40 object-contain relative z-10">
         </div>
+
+        <!-- Footer -->
         <div class="bg-black bg-opacity-40 py-2 text-center relative z-10">
           <h4 class="text-lg font-bold">1x</h4>
         </div>
@@ -76,7 +82,7 @@
 
   </div>
 
-  <!-- Bonus and image -->
+  <!-- Bonus & Visual -->
   <div class="flex justify-center mt-4 max-w-screen-sm mx-auto px-4">
    <div class="bg-white rounded-lg shadow-lg p-4 w-80 flex flex-col items-center justify-between">
     <div class="flex items-center space-x-2 mb-2">
@@ -96,7 +102,7 @@
   <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
    <div class="bg-white rounded-lg shadow-lg max-w-xs w-full p-6 text-center">
     <h3 class="text-xl font-bold mb-4">Event!</h3>
-    <video muted playsinline loop autoplay poster="https://game-assets.store.supercell.com/clashofclans/de84605b-e080-420c-bf3d-def796be7355.png" class="mx-auto mb-4 rounded w-40 h-auto">
+    <video muted="" playsinline="" loop="" autoplay="" poster="https://game-assets.store.supercell.com/clashofclans/de84605b-e080-420c-bf3d-def796be7355.png" class="mx-auto mb-4 rounded w-40 h-auto">
       <source src="https://game-assets.store.supercell.com/clashofclans/86015b42-68cf-4f8b-ab3b-c97d1084420f.webm#t=0.1" type="video/webm">
       <img alt="Video not found" src="https://store.supercell.com/_next/static/media/store_not_found_bag.ac1f8504.svg">
     </video>
@@ -128,5 +134,4 @@
     closeBtn.addEventListener('click', () => { modal.classList.add('hidden'); });
    });
   </script>
-</body>
-  </html>
+</body></html>
